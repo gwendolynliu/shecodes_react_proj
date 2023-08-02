@@ -1,0 +1,9 @@
+.Weather {
+  background-image: url(./img/cloudy.jpg);
+  background-position: center;
+  background-size: 1000px;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 30px;
+  border-radius: 10px;
+}

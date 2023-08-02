@@ -1,0 +1,57 @@
+.WeatherInfo {
+  color: #edf7fa;
+}
+
+.WeatherInfo ul {
+  list-style: none;
+  text-align: left;
+  padding: 5px;
+  font-size: 0.9rem;
+  font-weight: 300;
+}
+
+.WeatherInfo .main-temp {
+  font-size: 5rem;
+  text-align: center;
+}
+
+.WeatherInfo .city {
+  font-size: 3rem;
+  margin-bottom: 0;
+}
+
+.WeatherInfo .date {
+  font-size: 1.3rem;
+  letter-spacing: 1.1px;
+}
+
+.WeatherInfo .weather-description {
+  font-size: 1.3rem;
+  letter-spacing: 1.1px;
+  text-transform: capitalize;
+}
+
+.WeatherInfo .col-width-230 {
+  width: 230px;
+  line-height: 1;
+  letter-spacing: 1.1px;
+}
+
+.WeatherInfo .col-width-130 {
+  width: 130px;
+  text-align: left;
+  padding: 0;
+  position: relative;
+  left: -20px;
+  bottom: -14px;
+  letter-spacing: 1.3px;
+}
+
+.WeatherInfo .col-width-320 {
+  width: 320px;
+  word-wrap: break-word;
+  text-align: right;
+  line-height: 1.4;
+  position: relative;
+  bottom: -5px;
+}
