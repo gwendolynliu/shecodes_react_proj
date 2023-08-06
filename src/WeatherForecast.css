@@ -1,0 +1,25 @@
+.forecast {
+  padding-top: 20px;
+  margin: 40px auto 40px auto;
+  text-align: center;
+  color: #edf7fa;
+  font-weight: 800;
+}
+
+.block {
+  padding: 10px;
+  border-radius: 10px;
+}
+.block:hover {
+  background-color: #ff8364;
+}
+
+.date {
+  font-size: 1.1rem;
+  letter-spacing: 1.1px;
+  padding: 8px;
+}
+
+.temp-list {
+  padding: 8px;
+}

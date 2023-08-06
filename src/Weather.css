@@ -1,9 +1,71 @@
 .Weather {
-  background-image: url(./img/cloudy.jpg);
   background-position: center;
   background-size: 1000px;
   max-width: 720px;
   margin: 0 auto;
   padding: 30px;
   border-radius: 10px;
+}
+
+.Weather .search-bar {
+  background-color: transparent;
+  color: #edf7fa;
+}
+
+.Weather .search-bar::placeholder {
+  color: #edf7fa;
+}
+
+.Weather .search-bar:focus {
+  border-color: #ff8364;
+  box-shadow: 0 0 5px #ff8364;
+  background: transparent;
+  color: #edf7fa;
+}
+
+.Weather .btn {
+  background-color: transparent;
+  border: 1px solid #edf7fa;
+}
+
+.Weather .btn:hover {
+  background-color: #ff8364;
+  border-color: #ff8364;
+}
+
+.Weather.btn:active:focus {
+  background-color: #ff8364;
+  border-color: #ff8364;
+}
+
+.Weather .search-icon {
+  display: inline-block;
+  margin: 0px 0px 0px 350px;
+}
+
+.Weather .optional-link {
+  padding-top: 20px;
+  display: block;
+  text-align: right;
+}
+
+.Weather .curr-icon {
+  color: #edf7fa;
+  padding-right: 10px;
+  font-size: 24px;
+}
+
+.Weather .curr-icon:hover {
+  color: #ff8364;
+  cursor: pointer;
+}
+
+.Weather .f-icon {
+  color: #edf7fa;
+  font-size: 24px;
+  text-decoration: none;
+}
+
+.Weather .f-icon:hover {
+  color: #ff8364;
 }
