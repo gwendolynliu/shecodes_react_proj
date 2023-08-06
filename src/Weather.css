@@ -38,9 +38,9 @@
   border-color: #ff8364;
 }
 
-.Weather .search-icon {
+.search-loader {
   display: inline-block;
-  margin: 0px 0px 0px 350px;
+  margin: 0px 0px 0px 380px;
 }
 
 .Weather .optional-link {

@@ -11,18 +11,20 @@ export default function WeatherForecastDay(props) {
     return days[day];
   }
 
+  let max = Math.round(props.forecast.temperature.maximum);
+  let min = Math.round(props.forecast.temperature.minimum);
+
+  if (props.units === "°C") {
+    max = Math.round(props.forecast.temperature.maximum * (9 / 5) + 32);
+    min = Math.round(props.forecast.temperature.minimum * (9 / 5) + 32);
+  }
   return (
     <div>
-      <div className="date">{day()}</div>
+      <div className="days">{day()}</div>
       <WeatherIcon icon={props.forecast.condition.icon} />
       <div className="temp-list">
-        <span className="high">
-          {Math.round(props.forecast.temperature.maximum)}°
-        </span>
-        <span className="low">
-          {" "}
-          / {Math.round(props.forecast.temperature.minimum)}°
-        </span>
+        <span className="high">{max}°</span>
+        <span className="low"> / {min}°</span>
       </div>
     </div>
   );

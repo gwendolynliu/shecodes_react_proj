@@ -15,6 +15,7 @@ import WeatherForecast from "./WeatherForecast";
 export default function Weather(props) {
   const [WeatherData, setWeatherData] = useState({ ready: false });
   const [city, setCity] = useState(props.defaultCity);
+  const [units, setUnits] = useState("°F");
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -36,7 +37,11 @@ export default function Weather(props) {
         city: response.data.city,
         date: new Date(response.data.time * 1000),
         temp: response.data.temperature.current,
+        temp_f: Math.round(response.data.temperature.current * (9 / 5) + 32),
         feels_like: response.data.temperature.feels_like,
+        feels_like_f: Math.round(
+          response.data.temperature.feels_like * (9 / 5) + 32
+        ),
         humidity: response.data.temperature.humidity,
         wind: response.data.wind.speed,
         icon: response.data.condition.icon,
@@ -49,6 +54,37 @@ export default function Weather(props) {
 
   function changeCity(event) {
     setCity(event.target.value);
+  }
+
+  function getGeoLoc() {
+    navigator.geolocation.getCurrentPosition(showLoc);
+  }
+
+  function showLoc(location) {
+    let lat = location.coords.latitude;
+    let lon = location.coords.longitude;
+
+    let apiKey = "2b32f63e3t5dbc4a0f214f150o0d2cf2";
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${lon}&lat=${lat}&key=${apiKey}&units=metric`;
+
+    axios.get(apiUrl).then(handleResponse);
+  }
+
+  function showF(event) {
+    setUnits("°F");
+  }
+
+  function showC(event) {
+    setUnits("°C");
+  }
+
+  function changeUnits(event) {
+    event.preventDefault();
+    if (units === "°C") {
+      showF();
+    } else {
+      showC();
+    }
   }
 
   const imgMapping = {
@@ -78,8 +114,8 @@ export default function Weather(props) {
         className="Weather"
         style={{ backgroundImage: `url(${imgMapping[WeatherData.icon]})` }}
       >
-        <WeatherInfo WeatherData={WeatherData} />
-        <WeatherForecast city={WeatherData.city} />
+        <WeatherInfo WeatherData={WeatherData} units={units} />
+        <WeatherForecast city={WeatherData.city} units={units} />
         <br />
         <form className="search-form" onSubmit={handleSubmit}>
           <div className="row">
@@ -102,9 +138,12 @@ export default function Weather(props) {
           </div>
         </form>
         <section className="optional-link">
-          <i className="curr_loc fa-solid fa-location-dot curr-icon"></i>
-          <a href="/" className="f-icon">
-            °F
+          <i
+            className="curr_loc fa-solid fa-location-dot curr-icon"
+            onClick={getGeoLoc}
+          ></i>
+          <a href="/" className="f-icon" onClick={changeUnits}>
+            {units}
           </a>
         </section>
       </div>

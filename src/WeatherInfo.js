@@ -3,20 +3,30 @@ import FormatDate from "./FormatDate";
 import "./WeatherInfo.css";
 
 export default function WeatherInfo(props) {
+  let temp = Math.round(props.WeatherData.temp);
+  let curr_unit = "°C";
+  let feels_like = Math.round(props.WeatherData.feels_like);
+
+  if (props.units === "°C") {
+    temp = props.WeatherData.temp_f;
+    curr_unit = "°F";
+    feels_like = props.WeatherData.feels_like_f;
+  }
   return (
     <div className="WeatherInfo">
       <div className="row">
         <div className="col-width-230">
           <h1 className="main-temp">
-            {Math.round(props.WeatherData.temp)}
-            <span className="unit">°C</span>
+            {temp}
+            <span className="unit">{curr_unit}</span>
           </h1>
         </div>
         <div className="col-width-130">
           <ul>
             <li>
               <div className="feels-like">
-                Feels like: {Math.round(props.WeatherData.feels_like)}°C
+                Feels like: {feels_like}
+                {curr_unit}
               </div>
             </li>
             <li>

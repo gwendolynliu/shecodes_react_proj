@@ -1,5 +1,5 @@
 .forecast {
-  padding-top: 20px;
+  padding-top: 40px;
   margin: 40px auto 40px auto;
   text-align: center;
   color: #edf7fa;
@@ -14,7 +14,7 @@
   background-color: #ff8364;
 }
 
-.date {
+.days {
   font-size: 1.1rem;
   letter-spacing: 1.1px;
   padding: 8px;
